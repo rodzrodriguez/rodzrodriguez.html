@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Income Tax Calculator</title>
+    <style>
+        @keyframes backgroundAnim {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 400% 0%; }
+            100% { background-position: 0% 0%; }
+        
+        }
+        body {
+            color: #000;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            animation: backgroundAnim 1500s infinite;
+            background-image: url('oblivion.jpg');
+            background-size: 400%;
+            
+        }
+
+        h1 {
+            color: #ffffff; /* Blue color */
+            margin-top:15%;
+            text-shadow: 0px 0px 25px #ffffff;
+        }
+
+        label {
+            color: #000000;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius:15px;
+            transition :0.2s;
+            width: 40%;
+        }
+        button:hover{
+            transform:scale(1.1) ;
+        }
+            a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        #incomeInput{
+            text-align: right;
+        }
+        #taxResult{
+            text-align: right;
+        }
+        input{
+            width:80%;
+            text-align:center;
+            border-radius: 100px;
+        }
+        #box{
+            padding-top:3%;
+            background-color: rgba(255, 255, 255, 0.9);
+            width:50%;
+            margin-left:auto;
+            margin-right:auto;
+            border-radius:27px;
+            box-shadow: 0px 0px 70px white;
+        }
+        #userN{
+            width:20%;
+            text-align:right;
+        }
+    </style>
+</head>
+<body>
+    <h1>N Numbers Calculator</h1>
+    <div id="box">
+        <label for="userN">Input N</label><br>
+        <input id="userN" name="income" type="number">
+        <br><br>
+
+        <input id="factorial" type="text" readonly><br>
+
+        <input id="summation"  type="text" readonly><br>
+
+        <input id="average"  type="text" readonly><br>
+        <button onclick="compute()">Compute</button>
+        <button onclick="clearValues()">Clear</button>
+        <br><br>
+        <br><br>
+        <a href="index.html">Back to homepage</a>
+    </div>
+
+    <script>
+        function Factorial(UserN){
+            //while loop
+            let decrement = UserN;
+            while (decrement>1)
+            {
+                decrement--;
+                UserN*=decrement;
+            }
+            return UserN.toFixed();
+        }
+        function Summation(UserN){
+            //do while loop
+            let decrement=UserN;
+            do{
+                --decrement;
+                UserN+=decrement;
+            }while(decrement>1)
+            return UserN.toFixed();
+        }
+        function Average(UserN){
+            //forloop
+            let Original =UserN
+            for (let y=0 ; y<Original; y++){
+                UserN+=y;
+            }
+            return UserN/Original.toFixed();
+        }
+        function compute() {
+            var userInput = parseFloat(document.getElementById('userN').value);
+            var fact = document.getElementById('factorial');
+            var summ = document.getElementById('summation');
+            var ave = document.getElementById('average');
+            fact.value="The factorial of N is "+ Factorial(userInput);
+            summ.value="The summation of first N numbers is "+ Summation(userInput);
+            ave.value="The average of first N numbers is "+ Average(userInput);
+           
+        }
+
+        function clearValues() {
+            document.getElementById('userN').value = '';
+            document.getElementById('factorial').value = '';
+            document.getElementById('summation').value = '';
+            document.getElementById('average').value = '';
+        }
+    </script>
+</body>
+</html>

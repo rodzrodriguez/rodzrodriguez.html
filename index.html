@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Bebas+Neue&family=Hedvig+Letters+Sans&family=Montserrat:ital,wght@0,400;0,900;1,900&display=swap" rel="stylesheet">
+    <style>
+        @keyframes backgroundAnim {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 400% 0%; }
+            100% { background-position: 0% 0%; }
+        
+        }
+        @keyframes textLoad{
+            0%{transform:translate(40%, -300%);opacity:0%}
+            33%{transform:translate(40%,0%);opacity:100%}
+            45%{transform:translate(40%,0%);opacity:100%}
+            100%{transform:translate(0%,0%);opacity:100%}
+        }
+        @keyframes load{
+            0%{opacity:0%;}
+            100%{opacity:100%;}
+        }
+        body {
+
+            animation-timing-function: linear;
+            animation:load 1.5s; 
+            margin: 0;
+            overflow:hidden;
+            
+        }
+        #mainDiv {
+            display: grid;
+            grid-template-rows: 33% 33% 33%;
+            grid-template-columns: 55% 27.5% 27.5%;
+            height: 100vh; 
+            width: 100vw; 
+            background-image: url('oblivion.jpg');
+            background-size: 400%;
+            animation: backgroundAnim 1500s infinite;
+        }
+        #middleText{
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start:1 ;
+            grid-column-end:1 ;
+            font-size: 6vw;
+            padding-left: 10%;
+            color:white;
+            font-family: 'Hedvig Letters Sans';
+            animation:textLoad 6s forwards ;
+            text-shadow: 0px 0px 75px #ffffff;
+        }
+        #subheading{
+            font-size: 2vw;
+            opacity:0%;
+            animation: load 1.5s forwards;
+            animation-delay: 3s;
+            margin-left:10%
+        }
+        #LinkDiv{
+            display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color: white;
+    text-align: center;
+    font-family: 'Hedvig Letters Sans';
+
+        }
+        .links{
+            background-color: transparent;
+            border-color: transparent;
+            color: black;
+            cursor: pointer;
+            margin-top:10%;
+            margin-left:50%;
+            font-size: 2vw;
+            transition: 0.6s;
+            text-decoration: none;
+            color:white;
+            text-align: center;
+        }
+        .links:hover{
+            text-shadow:0px 0px 50px;
+            transform:scale(1.1);
+        }
+
+        #first, #second,#third,#fourth{
+            animation: load 1.5s forwards;
+            opacity:0%;
+            margin-top:10%;
+        }
+        #first{
+            animation-delay: 3s;
+        }
+        #second{
+            animation-delay: 3.3s;
+        }
+        #third{
+            animation-delay: 3.6s;
+        }
+        #fourth{
+            animation-delay: 4s;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="mainDiv">
+       <div id="middleText">
+        <div id="title">
+        A CS-1131 Website
+        </div>
+        <div id ="subheading"> 
+            ITC Webpages
+        </div>
+       </div>
+       <div id="LinkDiv">
+        <a href="fartocel.html" id="first" class="links">Conversion Calculator</a><br>
+        <a href="incometax.html" id="second" class="links">Income Tax Calculator</a><br>
+        <a href="Nnum.html"id="third"class="links">Average | Summation | Factorial</a><br>
+        <a href="payroll.html"id="fourth"class="links">Payroll Table</a><br>
+       </div>
+    </div>
+</div>
+</body>
+
+<script>
+const title=document.getElementById('title')
+const subh=document.getElementById('subheading')
+var OGtitle = title.innerHTML
+var OGsubh = subh.innerHTML 
+
+function Original(){
+    title.innerHTML = OGtitle;
+    subh.innerHTML=OGsubh;
+}
+ document.getElementById('first').addEventListener('mouseover',()=>{
+    title.innerHTML ='Conversion '
+    subh.innerHTML ='Meter to feet calculator <br> Feet to Meter calculator <br> Celsius to Fahrenheit Calculator<br> Fahrenheit to Celsius Calculator'
+ })
+ document.getElementById('second').addEventListener('mouseover',()=>{
+    title.innerHTML ='Income Tax '
+    subh.innerHTML ='Calculates your income tax based on the <br> Philippine Tax Bracket'
+ })
+ document.getElementById('third').addEventListener('mouseover',()=>{
+    title.innerHTML ='N Numbers '
+    subh.innerHTML ='Gets the factorial of N<br>Gets the summation of first N numbers<br>Gets the average of first N numbers'
+ })
+ document.getElementById('fourth').addEventListener('mouseover',()=>{
+    title.innerHTML ='Payroll Table'
+    subh.innerHTML ='Create a table for payroll'
+ })
+ document.getElementById('first').addEventListener('mouseout',Original);
+ document.getElementById('second').addEventListener('mouseout',Original);
+ document.getElementById('third').addEventListener('mouseout',Original);
+ document.getElementById('fourth').addEventListener('mouseout',Original);
+</script>
+</html>

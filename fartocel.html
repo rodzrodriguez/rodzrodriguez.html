@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Bebas+Neue&family=Hedvig+Letters+Sans&family=Montserrat:ital,wght@0,400;0,900;1,900&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Converter</title>
+    <style>
+        @keyframes backgroundAnim {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 400% 0%; }
+            100% { background-position: 0% 0%; }
+        
+        }
+        body {
+            background-image: url('oblivion.jpg');
+            background-size: 400%;
+            animation: backgroundAnim 1500s infinite;
+            text-align: center;
+            font-family:'Hedvig Letters Sans';
+        }
+
+        h1 {
+            color: #ffffff;
+            text-shadow:0px 0px 170px white;
+            margin-top:5%;
+        }
+
+        label {
+            color: #000000;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            text-align: right;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius:15px;
+            transition :0.2s;
+        }
+        button:hover{
+            transform:scale(1.1) ;
+        }
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        #Box{
+            margin-left:auto;
+            margin-right: auto;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 40px;
+            width: 40%;
+            box-shadow: 0px 0px 70px white;
+            padding-top:3%;
+            padding-bottom:4%;
+        }
+    </style>
+</head>
+<body>
+    <h1>CONVERSION</h1>
+
+    <div id="Box">
+
+    <label for="Celsius">Convert Celsius:</label>
+    <input id="Celsius" name="celsius" type="number">
+    <button onclick="convertCelsius()">Convert</button><br>
+    <label for="Fahrenheit">The Fahrenheit is:</label>
+    <input id="Fahrenheit" name="fahrenheit" type="number" readonly> 
+    <button onclick="clearValuesA()">Clear</button><br><br>
+
+    <label for="FahrenheitC">Convert Fahrenheit</label>
+    <input id="FahrenheitC" name="fahrenheit" type="number">
+    <button onclick="convertFahrenheit()">Convert</button><br>
+    <label for="FahrenheitCout">The Celsius is:</label>
+    <input id="FahrenheitCout" name="fahrenheit" type="number" readonly> 
+    <button onclick="clearValuesB()">Clear</button><br><br>
+    
+    <label for="feet">Convert Feet</label>
+    <input id="feet" name="fahrenheit" type="number">
+    <button onclick="convertFeet()">Convert</button><br>
+    <label for="feetOut">The Celsius is:</label>
+    <input id="feetOut" name="fahrenheit" type="number" readonly> 
+    <button onclick="clearValuesC()">Clear</button><br><br>
+
+    <label for="meter">Convert Meters</label>
+    <input id="meter" name="fahrenheit" type="number">
+    <button onclick="convertMeter()">Convert</button><br>
+    <label for="meterOut">The Celsius is:</label>
+    <input id="meterOut" name="fahrenheit" type="number" readonly> 
+    <button onclick="clearValuesD()">Clear</button><br><br>
+    <br>
+    <a href="index.html">Back to homepage</a>
+    </div>
+    <script>
+       function convertCelsius() {
+            var celsius = parseFloat(document.getElementById("Celsius").value);
+            var fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById("Fahrenheit").value = fahrenheit.toFixed(1); 
+        }
+
+        function convertFahrenheit(){
+            var fahrenheit = parseFloat(document.getElementById("FahrenheitC").value);
+            var celsius = (fahrenheit -32) * 5/9;
+            document.getElementById("FahrenheitCout").value = celsius.toFixed(1); 
+        }
+
+        function convertFeet(){
+            var feet = parseFloat(document.getElementById("feet").value);
+            var meter = feet/3.281;
+            document.getElementById("feetOut").value = meter.toFixed(1); 
+        }
+
+        function convertMeter(){
+            var meter = parseFloat(document.getElementById("meter").value);
+            var feet = meter* 3.281
+
+;
+            document.getElementById("meterOut").value = feet.toFixed(1); 
+        }
+        function clearValuesA() {
+            document.getElementById("Fahrenheit").value = '';
+            document.getElementById("Celsius").value = '';
+        }
+
+        function clearValuesB() {
+            document.getElementById("FahrenheitC").value = '';
+            document.getElementById("FahrenheitCout").value = '';
+        }
+        function clearValuesC() {
+            document.getElementById("feet").value = '';
+            document.getElementById("feetOut").value = '';
+        }
+        function clearValuesD() {
+            document.getElementById("meter").value = '';
+            document.getElementById("meterOut").value = '';
+        }
+    </script>
+</body>
+</html>
